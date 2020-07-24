@@ -1,8 +1,5 @@
 package br.com.vitorfornazieri.restwithspringbootudemy.math;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class SimpleMath {
 
     public Double sum(Double numberOne, Double numberTwo){

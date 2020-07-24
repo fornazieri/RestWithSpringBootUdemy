@@ -3,13 +3,15 @@ package br.com.vitorfornazieri.restwithspringbootudemy.controllers;
 import br.com.vitorfornazieri.restwithspringbootudemy.exception.UnsupportedMathOperationException;
 import br.com.vitorfornazieri.restwithspringbootudemy.math.SimpleMath;
 import br.com.vitorfornazieri.restwithspringbootudemy.request.converters.NumberConverter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 public class MathController {
 
-    private SimpleMath math = new SimpleMath();
+    @Autowired
+    private SimpleMath math;
 
     @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET) //por padrão sempre é GET, quando não é especificado
     public Double sum(@PathVariable(value = "numberOne") String numberOne, @PathVariable(value = "numberTwo") String numberTwo) throws RuntimeException {
