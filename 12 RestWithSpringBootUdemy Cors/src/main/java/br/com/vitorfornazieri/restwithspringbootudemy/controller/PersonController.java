@@ -15,7 +15,7 @@ import java.util.List;
 
 //@CrossOrigin
 @Api(value = "Person Endpoint", description = "Description  for person", tags = {"person", "personEndpoint"})
-//@Api(tags = "personEndpoint")
+//@Api(tags = "PersonEndpoint")
 @RestController
 @RequestMapping("/api/person/v1")
 public class PersonController {
@@ -23,6 +23,7 @@ public class PersonController {
     @Autowired
     private PersonServices services;
 
+    //@CrossOrigin(origins= "http://www.vitorfornazieri.dev.br")
     @ApiOperation(value = "Find all people recorded")
     @GetMapping(produces = {"application/json", "application/xml", "application/x-yaml"})
     public List<PersonVO> findAll() {
@@ -36,7 +37,7 @@ public class PersonController {
         return persons;
     }
 
-    //@CrossOrigin(origins= "http://www.erudio.com.br")
+
     @ApiOperation(value = "Find person by ID")
     @GetMapping(value = "/{id}", produces = {"application/json", "application/xml", "application/x-yaml"})
     public PersonVO findById(@PathVariable("id") Long id) {
